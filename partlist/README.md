@@ -30,3 +30,5 @@ a = [|"az", "toto", "picaro", "zone", "kiwi"|] -->
 [("az", "toto picaro zone kiwi"), ("az toto", "picaro zone kiwi"), ("az toto picaro", "zone kiwi"), ("az toto picaro zone", "kiwi")]
 ```
 You can see other examples for each language in "Your test cases"
+
+Called 'Parts of a list'
