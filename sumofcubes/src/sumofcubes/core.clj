@@ -12,38 +12,19 @@
 ;      :else (recur (- m (*' i i i))
 ;                   (inc i)))))
 
-; (find-nb 102525193459636447345267623154781254785178)
-(Math/sqrt 102525193459636447345267623154781254785178)
-(defn sqr [n] (* n n))
+(defn binomial
+  ([n k] (binomial n k 0))
+  (/ (factorial (inc n))
+     (* 2 (factorial (dec n)))))
 
-(defn sum-of-cubes
-  [n]
-  (/ (* (sqr n)
-        (sqr (+ n 1)))
-     4))
+(binomial 5)
 
 (defn find-nb
   [n]
   (let [root (Math/sqrt n)]
-    (proto-repl.saved-values/save 1)
     (if (= (Math/floor root) root)
-        (dec root)
-        -1)))
+        (binomial root)
+        (dec 0))))
 
-
-(find-nb 9)
-(sum-of-cubes 2)
-(Math/cbrt 225)
-(Math/sqrt 225)
-
-(defn n-given-tri
-  [tri]
-  (/ (- (Math/sqrt (+ 1
-                      (* 8 tri)))
-        1)
-     2))
-
-(n-given-tri 6)
-
-(defn n-th-tri
-  [n])
+(Math/sqrt 102525193459636447345267623154781254785178)
+(find-nb 100)
