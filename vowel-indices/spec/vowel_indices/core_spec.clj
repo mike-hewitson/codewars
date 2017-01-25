@@ -2,6 +2,7 @@
   (:require [speclj.core :refer :all]
             [vowel-indices.core :refer :all]))
 
-(describe "a test"
-  (it "FIXME, I fail."
-    (should= 0 1)))
+
+(describe "test-vowel-indices"
+  (it "should give correct answer for 'super'"
+    (should= (vowel-indices "super") [2,4])))
