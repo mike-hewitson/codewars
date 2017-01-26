@@ -5,19 +5,12 @@
   [word]
   (zipmap
           (range 1 (inc (count word)))
-          word))
+          (clojure.string/lower-case word)))
 
-(def vowels ["a" "e" "o" "u" "y"])
+(defn vowel-indices
+  [word]
+  (proto-repl.saved-values/save 1)
+  (sort (keys (filter (fn [[k v]] (some #(= v %) (seq "aeiouy")))
+                     (create-map word)))))
 
-
-(create-map "word")
-(get (create-map "word") "w")
-(map key (create-map "word"))
-(key (first (create-map "word")))
-
-(filter (fn [[k v]]
-          (proto-repl.saved-values/save 1)
-          (= v "r")) 
-        (create-map "word"))
-
-(map (fn [[k v]] k) (create-map "word"))
+(vowel-indices "Apple")

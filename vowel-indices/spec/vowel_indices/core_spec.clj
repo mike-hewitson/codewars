@@ -5,4 +5,4 @@
 
 (describe "test-vowel-indices"
   (it "should give correct answer for 'super'"
-    (should= (vowel-indices "super") [2,4])))
+    (should= (vowel-indices "super") [2 4])))
