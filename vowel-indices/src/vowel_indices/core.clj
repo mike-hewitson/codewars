@@ -7,15 +7,13 @@
           (range 1 (inc (count word)))
           (clojure.string/lower-case word)))
 
-(defn vowel-indices
+(defn vowel-indices-mine
   [word]
   (sort (keys (filter (fn [[k v]] (some #(= v %) (seq "aeiouy")))
                      (create-map word)))))
 
-(vowel-indices "Apple")
+(def vowels #{\a \e \i \o \u \U \y})
 
-(def vowels #{\a \A \e \E \i \I \o \O \u \U \y \Y})
-
-(defn vowel-indices-best
+(defn vowel-indices
   [word]
-  (keep-indexed #(when (vowels %2) (inc %1)) word))
+  (keep-indexed #(when (vowels %2) (inc %1)) (clojure.string/lower-case word)))
