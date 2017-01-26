@@ -9,8 +9,13 @@
 
 (defn vowel-indices
   [word]
-  (proto-repl.saved-values/save 1)
   (sort (keys (filter (fn [[k v]] (some #(= v %) (seq "aeiouy")))
                      (create-map word)))))
 
 (vowel-indices "Apple")
+
+(def vowels #{\a \A \e \E \i \I \o \O \u \U \y \Y})
+
+(defn vowel-indices-best
+  [word]
+  (keep-indexed #(when (vowels %2) (inc %1)) word))
