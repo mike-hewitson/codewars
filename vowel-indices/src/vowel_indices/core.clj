@@ -4,13 +4,20 @@
 (defn create-map
   [word]
   (zipmap
-          (range 1 (inc (count word)))
+          (-> word
+              count
+              inc
+              range 1)
           (clojure.string/lower-case word)))
 
 (defn vowel-indices-mine
   [word]
-  (sort (keys (filter (fn [[k v]] (some #(= v %) (seq "aeiouy")))
-                     (create-map word)))))
+  (-> (filter (fn [[k v]] (some #(= v %) (seq "aeiouy"))
+                      (create-map word)))
+      keys
+      sort))
+
+(vowel-indices-mine "sUpEr")
 
 (def vowels #{\a \e \i \o \u \U \y})
 
