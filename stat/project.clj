@@ -1,11 +1,5 @@
-(defproject stat "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
-  :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+(defproject stat "0.0.1-SNAPSHOT"
+  :description "Cool new project to do things and stuff"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [proto-repl "0.3.1"]]
-                 ; [proto-repl-sayid "0.1.3"]]
-  :profiles {:dev {:dependencies [[speclj "3.3.1"]]}}
-  :plugins [[speclj "3.3.1"]]
-  :test-paths ["spec"])
+  :profiles {:dev {:dependencies [[midje "1.5.1"]]}})

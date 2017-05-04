@@ -1,4 +1,5 @@
-(ns stat.core)
+(ns stat.core
+  (:require [clojure.string :as str]))
 
 (defn split-time
   [time]
@@ -8,6 +9,19 @@
 
 (defn join-time
   [seconds]
-  (str (quot seconds 3600) "|"
+  (str (format "%02d" (quot seconds 3600)) "|"
        (- (quot seconds 60) (* (quot seconds 3600) 60)) "|"
        (mod seconds 60)))
+
+(defn split-up-times
+  [times]
+  (str/split times #", "))
+
+(defn average
+  [coll]
+  (Math/round (float (/ (reduce + coll) (count coll)))))
+
+(defn stat
+  [times]
+  (str " Average: "
+       (join-time (average (map split-time (split-up-times times))))))
